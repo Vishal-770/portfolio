@@ -99,7 +99,7 @@ export default function Home() {
           <PixelTransition
             firstContent={
               <img
-                src="DAo.png"
+                src="DAO.png"
                 alt="default pixel transition content, a cat!"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
