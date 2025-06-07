@@ -10,12 +10,13 @@ import FuzzyText from "@/blocks/TextAnimations/FuzzyText/FuzzyText";
 import GradientText from "@/blocks/TextAnimations/GradientText/GradientText";
 import RotatingText from "@/blocks/TextAnimations/RotatingText/RotatingText";
 import TrueFocus from "@/blocks/TextAnimations/TrueFocus/TrueFocus";
-import { ContactForm } from "@/components/ContactForm";
+
+import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col" id="home">
         <div className="font-base flex items-center justify-center mt-15 flex-col gap-10 text-center lg:flex-row lg:mx-15">
           <TiltedCard
             imageSrc="/profileimage.jpg"
@@ -61,7 +62,7 @@ export default function Home() {
             pauseBetweenAnimations={1}
           />
         </div>
-        <div>
+        <div id="about">
           <RollingGallery autoplay={true} pauseOnHover={true} />
         </div>
         <div className="flex items-center justify-center font-base gap-5 text-4xl">
@@ -166,7 +167,7 @@ export default function Home() {
             animationStepDuration={0.4}
             className="custom-pixel-card"
           />
-            <PixelTransition
+          <PixelTransition
             firstContent={
               <img
                 src="Tedx.png"
@@ -175,7 +176,8 @@ export default function Home() {
               />
             }
             secondContent={
-              <div className="text-center font-base"
+              <div
+                className="text-center font-base"
                 style={{
                   width: "100%",
                   height: "100%",
@@ -191,7 +193,7 @@ export default function Home() {
                     color: "#ffffff",
                   }}
                 >
-                 Ted-X VIT-C
+                  Ted-X VIT-C
                 </p>
               </div>
             }
@@ -201,11 +203,9 @@ export default function Home() {
             className="custom-pixel-card"
           />
         </div>
-        <div className="flex items-center justify-center">
-          <h1 className="text-4xl my-15">Contact ME</h1>
-        </div>
-        <div className="flex items-center justify-center my-12 ">
-          <ContactForm />
+
+        <div id="contact" className=" ">
+          <ContactSection />
         </div>
       </div>
     </>

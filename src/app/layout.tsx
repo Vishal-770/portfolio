@@ -4,6 +4,8 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import SplashCursor from "@/blocks/Animations/SplashCursor/SplashCursor";
 
+import Aurora from "@/blocks/Backgrounds/Aurora/Aurora";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,6 +33,14 @@ export default function RootLayout({
           <NavBar />
           {children}
           <SplashCursor />
+          <div className="absolute top-0 left-0 h-full w-full -z-50">
+            <Aurora
+              colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+              blend={0.5}
+              amplitude={1.0}
+              speed={0.5}
+            />
+          </div>
         </div>
       </body>
     </html>

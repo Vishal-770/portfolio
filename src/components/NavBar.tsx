@@ -2,9 +2,9 @@
 import GooeyNav from "@/blocks/Components/GooeyNav/GooeyNav";
 import React from "react";
 const items = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const NavBar = () => {
