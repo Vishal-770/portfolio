@@ -4,6 +4,7 @@ import RollingGallery from "@/blocks/Components/RollingGallery/RollingGallery";
 import TiltedCard from "@/blocks/Components/TiltedCard/TiltedCard";
 
 import GradientText from "@/blocks/TextAnimations/GradientText/GradientText";
+import RotatingText from "@/blocks/TextAnimations/RotatingText/RotatingText";
 import TrueFocus from "@/blocks/TextAnimations/TrueFocus/TrueFocus";
 
 export default function Home() {
@@ -54,11 +55,26 @@ export default function Home() {
             animationDuration={2}
             pauseBetweenAnimations={1}
           />
-
         </div>
         <div>
           <RollingGallery autoplay={true} pauseOnHover={true} />
         </div>
+        <div className="flex items-center justify-center font-base gap-5 text-4xl">
+          <h1 className="text-5xl">My</h1>
+          <RotatingText
+            texts={["Projects", "Builds", "Creations", "Works"]}
+            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={3000}
+          />
+        </div>
+        <div className="h-100"></div>
       </div>
     </>
   );
