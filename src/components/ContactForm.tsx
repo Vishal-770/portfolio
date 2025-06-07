@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { toast } from "sonner";
+
 import { motion } from "framer-motion";
 
 const formSchema = z.object({
@@ -22,21 +22,14 @@ export function ContactForm() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      toast.success("Message sent!", {
-        className: "bg-black text-white border border-gray-700",
-        position: "top-center",
-      });
-
+      // You can handle the form data here, e.g., send to API
+      console.log("Form submitted:", data);
       reset();
-    } catch {
-      toast.error("Failed to send", {
-        className: "bg-black text-white border border-gray-700",
-        position: "top-center",
-      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
