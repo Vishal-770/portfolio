@@ -1,12 +1,16 @@
 "use client";
 
+import PixelTransition from "@/blocks/Animations/PixelTransition/PixelTransition";
 import CircularGallery from "@/blocks/Components/CircularGallery/CircularGallery";
 import RollingGallery from "@/blocks/Components/RollingGallery/RollingGallery";
+
 import TiltedCard from "@/blocks/Components/TiltedCard/TiltedCard";
+import FuzzyText from "@/blocks/TextAnimations/FuzzyText/FuzzyText";
 
 import GradientText from "@/blocks/TextAnimations/GradientText/GradientText";
 import RotatingText from "@/blocks/TextAnimations/RotatingText/RotatingText";
 import TrueFocus from "@/blocks/TextAnimations/TrueFocus/TrueFocus";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -81,6 +85,128 @@ export default function Home() {
           </div>
         </div>
         <div className="h-100 lg:hidden"></div>
+        <div className="h-100 flex items-center justify-center text-2xl">
+          <FuzzyText
+            baseIntensity={0}
+            hoverIntensity={0.9}
+            enableHover={true}
+            fontSize={35}
+          >
+            Clubs I&#39;m In
+          </FuzzyText>
+        </div>
+        <div className="flex items-center justify-center flex-wrap gap-7">
+          <PixelTransition
+            firstContent={
+              <img
+                src="DAo.png"
+                alt="default pixel transition content, a cat!"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            }
+            secondContent={
+              <div
+                className="text-center font-base"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "grid",
+                  placeItems: "center",
+                  backgroundColor: "#111",
+                }}
+              >
+                <p
+                  style={{
+                    fontWeight: 600,
+                    fontSize: "3rem",
+                    color: "#ffffff",
+                  }}
+                >
+                  DAO Community VIT-C
+                </p>
+              </div>
+            }
+            gridSize={12}
+            pixelColor="#ffffff"
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />{" "}
+          <PixelTransition
+            firstContent={
+              <img
+                src="Ac.png"
+                alt="default pixel transition content, a cat!"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            }
+            secondContent={
+              <div
+                className="text-center font-base"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "grid",
+                  placeItems: "center",
+                  backgroundColor: "#111",
+                }}
+              >
+                <p
+                  style={{
+                    fontWeight: 600,
+                    fontSize: "3rem",
+                    color: "#ffffff",
+                  }}
+                >
+                  Android Club VIT-C
+                </p>
+              </div>
+            }
+            gridSize={12}
+            pixelColor="#ffffff"
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
+            <PixelTransition
+            firstContent={
+              <img
+                src="Tedx.png"
+                alt="default pixel transition content, a cat!"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            }
+            secondContent={
+              <div className="text-center font-base"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "grid",
+                  placeItems: "center",
+                  backgroundColor: "#111",
+                }}
+              >
+                <p
+                  style={{
+                    fontWeight: 600,
+                    fontSize: "3rem",
+                    color: "#ffffff",
+                  }}
+                >
+                 Ted-X VIT-C
+                </p>
+              </div>
+            }
+            gridSize={12}
+            pixelColor="#ffffff"
+            animationStepDuration={0.4}
+            className="custom-pixel-card"
+          />
+        </div>
+        <div className="flex items-center justify-center">
+          <h1 className="text-4xl my-15">Contact ME</h1>
+        </div>
+        <div className="flex items-center justify-center my-12 ">
+          <ContactForm />
+        </div>
       </div>
     </>
   );

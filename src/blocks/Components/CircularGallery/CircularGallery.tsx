@@ -15,7 +15,10 @@ import {
 
 type GL = Renderer["gl"];
 
-function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number) {
+function debounce<T extends (...args: unknown[]) => void>(
+  func: T,
+  wait: number
+) {
   let timeout: number;
   return function (this: unknown, ...args: Parameters<T>) {
     window.clearTimeout(timeout);
@@ -511,52 +514,28 @@ class App {
   ) {
     const defaultItems = [
       {
-        image: `https://picsum.photos/seed/1/800/600?grayscale`,
-        text: "Bridge",
+        image: `Netflix.png`,
+        text: "Netflix Clone",
       },
       {
-        image: `https://picsum.photos/seed/2/800/600?grayscale`,
-        text: "Desk Setup",
+        image: `todoApp.png`,
+        text: "ToDo App",
       },
       {
-        image: `https://picsum.photos/seed/3/800/600?grayscale`,
-        text: "Waterfall",
+        image: `AichatApp.png`,
+        text: "AI Chat App",
       },
       {
-        image: `https://picsum.photos/seed/4/800/600?grayscale`,
-        text: "Strawberries",
+        image: `TicTacToe.png`,
+        text: "Tic Tac Toe",
       },
       {
-        image: `https://picsum.photos/seed/5/800/600?grayscale`,
-        text: "Deep Diving",
+        image: `Car.png`,
+        text: "Premium Car Selling Website",
       },
       {
-        image: `https://picsum.photos/seed/16/800/600?grayscale`,
-        text: "Train Track",
-      },
-      {
-        image: `https://picsum.photos/seed/17/800/600?grayscale`,
-        text: "Santorini",
-      },
-      {
-        image: `https://picsum.photos/seed/8/800/600?grayscale`,
-        text: "Blurry Lights",
-      },
-      {
-        image: `https://picsum.photos/seed/9/800/600?grayscale`,
-        text: "New York",
-      },
-      {
-        image: `https://picsum.photos/seed/10/800/600?grayscale`,
-        text: "Good Boy",
-      },
-      {
-        image: `https://picsum.photos/seed/21/800/600?grayscale`,
-        text: "Coastline",
-      },
-      {
-        image: `https://picsum.photos/seed/12/800/600?grayscale`,
-        text: "Palm Trees",
+        image: `URL.png`,
+        text: "URL Shotener",
       },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
@@ -716,8 +695,10 @@ export default function CircularGallery({
       app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font]);
-  return <div
-    className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
-    ref={containerRef}
-  />;
+  return (
+    <div
+      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
+      ref={containerRef}
+    />
+  );
 }
