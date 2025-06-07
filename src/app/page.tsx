@@ -1,5 +1,6 @@
 "use client";
 
+import CircularGallery from "@/blocks/Components/CircularGallery/CircularGallery";
 import RollingGallery from "@/blocks/Components/RollingGallery/RollingGallery";
 import TiltedCard from "@/blocks/Components/TiltedCard/TiltedCard";
 
@@ -52,7 +53,7 @@ export default function Home() {
             manualMode={true}
             blurAmount={15}
             borderColor="red"
-            animationDuration={2}
+            animationDuration={1}
             pauseBetweenAnimations={1}
           />
         </div>
@@ -74,7 +75,12 @@ export default function Home() {
             rotationInterval={3000}
           />
         </div>
-        <div className="h-100"></div>
+        <div className=" hidden lg:block">
+          <div style={{ height: "600px", position: "relative" }}>
+            <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} />
+          </div>
+        </div>
+        <div className="h-100 lg:hidden"></div>
       </div>
     </>
   );
