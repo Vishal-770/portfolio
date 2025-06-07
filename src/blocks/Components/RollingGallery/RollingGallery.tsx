@@ -19,7 +19,7 @@ const IMGS: string[] = [
   "typescript.png",
   "nodejs.jpg",
   "expressjs.webp",
-  "mongodb.svg",
+  "mongodb.png",
   "git.png",
   "tailwind.png",
   "python-logo.png",
@@ -174,7 +174,7 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
               <img
                 src={url}
                 alt="gallery"
-                className="pointer-events-none h-[120px] w-[300px] rounded-[15px] border-[3px] border-white object-cover transition-transform duration-300 ease-out group-hover:scale-105 sm:h-[100px] sm:w-[220px]"
+                className="pointer-events-none h-[120px] w-[300px] rounded-[15px] border-[3px] border-white object-fit transition-transform duration-300 ease-out group-hover:scale-105 sm:h-[100px] sm:w-[220px]"
               />
             </div>
           ))}
