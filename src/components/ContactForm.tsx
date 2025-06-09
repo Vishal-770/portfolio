@@ -3,16 +3,19 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
 import { motion } from "framer-motion";
+import { useUser, useClerk } from "@clerk/nextjs";
+import { SendMessage } from "@/services/service";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 export function ContactForm() {
+  const { user, isSignedIn } = useUser();
+  const { openSignIn } = useClerk();
+
   const {
     register,
     handleSubmit,
@@ -23,13 +26,24 @@ export function ContactForm() {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    if (!isSignedIn) {
+      openSignIn();
+      return;
+    }
+
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      // You can handle the form data here, e.g., send to API
-      console.log("Form submitted:", data);
+      console.log("Message submitted by:", user?.fullName || user?.username);
+      console.log(data.name, data.message, user.emailAddresses[0].emailAddress);
+      await SendMessage({
+        name: data.name,
+        message: data.message,
+        email: user.emailAddresses[0].emailAddress,
+      });
+
       reset();
     } catch (err) {
-      console.log(err);
+      console.error("Submission error:", err);
     }
   };
 
@@ -65,29 +79,6 @@ export function ContactForm() {
           />
           {errors.name && (
             <p className="text-sm text-red-400">{errors.name.message}</p>
-          )}
-        </div>
-
-        <div className="space-y-2">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-300"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="your@email.com"
-            {...register("email")}
-            className={`w-full rounded-md bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 ${
-              errors.email
-                ? "border-red-500 focus:ring-red-500/30"
-                : "border-gray-700 focus:border-white focus:ring-white/30"
-            }`}
-          />
-          {errors.email && (
-            <p className="text-sm text-red-400">{errors.email.message}</p>
           )}
         </div>
 
